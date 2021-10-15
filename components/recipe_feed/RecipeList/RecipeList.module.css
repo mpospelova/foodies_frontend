@@ -1,5 +1,23 @@
 .swiperSlide {
   width: 250px;
+  height: 200px;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right bottom,
+    #ff7878,
+    #fd7e75,
+    #fb8373,
+    #f88971,
+    #f58e70,
+    #f58e70,
+    #f58e70,
+    #f58e70,
+    #f88971,
+    #fb8373,
+    #fd7e75,
+    #ff7878
+  );
+  overflow: hidden;
 }
 
 .RecipeList__container {
