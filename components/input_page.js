@@ -1,6 +1,8 @@
 import FoodInputField from "../components/food_input";
 
 import React, { useState } from "react";
+import FoodTable from "./food_table";
+import { v4 as uuidv4 } from "uuid";
 
 export default function InputPage() {
   const [name, setName] = useState("");
@@ -13,7 +15,15 @@ export default function InputPage() {
   };
 
   const addNewTextField = () => {
-    const newFood = { name: name, unit: unit, quantity: quantity };
+    const currDate = new Date();
+    const yymmdd = currDate.toISOString().split("T")[0];
+    const newFood = {
+      id: uuidv4(),
+      name: name,
+      unit: unit,
+      quantity: quantity,
+      time: yymmdd,
+    };
 
     setName("");
     setUnit("");
@@ -48,6 +58,11 @@ export default function InputPage() {
         +
       </button>
       <button className="submit_button">Submit</button>
+
+      <h3 className="food_table_title"> Newly added food:</h3>
+      <div className="food_table">
+        <FoodTable foodList={foodList} />
+      </div>
     </div>
   );
 }

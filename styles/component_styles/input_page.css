@@ -41,3 +41,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.food_table_title {
+  padding: 10px;
+}
