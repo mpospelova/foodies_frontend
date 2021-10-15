@@ -61,7 +61,7 @@ export default function FoodDisplay() {
     cnter += 1;
     return (
         <>
-            <p> Test test test </p>
+            <p> Food Display </p>
             <>
               {
                 foodList.map((item, index) =>
