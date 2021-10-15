@@ -10,3 +10,34 @@
   display: flex;
   justify-content: space-around;
 }
+
+.input_button {
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 100px;
+  height: 50px;
+  width: 50px;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: large;
+  cursor: pointer;
+}
+
+.submit_button {
+  width: 80%;
+  background: #1abc9c;
+  color: white;
+  border: none;
+  text-align: center;
+  font-size: large;
+  position: absolute;
+  bottom: 10px;
+  height: 50px;
+  cursor: pointer;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
