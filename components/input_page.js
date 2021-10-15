@@ -27,7 +27,9 @@ export default function InputPage() {
     const currDate = new Date();
     const yymmdd = currDate.toISOString().split("T")[0];
     //We define random offset of current date to get expiration date. Offset is uniformly random of 20 days
-    const random_offset = Math.round((Math.random() - 0.8) * 20 * 24 * 60 * 60 * 1000);
+    const random_offset = Math.round(
+      (Math.random() - 0.8) * 20 * 24 * 60 * 60 * 1000
+    );
     const expir_date = new Date(currDate.getTime() + random_offset);
     const expir_date_yymmdd = expir_date.toISOString().split("T")[0];
     const newFood = {
@@ -36,7 +38,7 @@ export default function InputPage() {
       unit: unit,
       quantity: quantity,
       time: yymmdd,
-      expir_date: expir_date_yymmdd
+      expir_date: expir_date_yymmdd,
     };
 
     setName("");
@@ -75,7 +77,7 @@ export default function InputPage() {
         ))}
       </div>
 
-      <div class="input_page_image_container">
+      <div className="input_page_image_container">
         <img src="/5245.jpg" />
       </div>
 

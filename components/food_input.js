@@ -19,7 +19,7 @@ export default function FoodInputField({
 
       <input
         className="quantity_input"
-        type="text"
+        type="number"
         value={quantity}
         placeholder="Quantity"
         onChange={(e) => setQuantity(e.target.value)}
