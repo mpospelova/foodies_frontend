@@ -13,12 +13,12 @@ export default function InputPage() {
   const [name, setName] = useState("");
   const [unit, setUnit] = useState();
   const [quantity, setQuantity] = useState("");
-  const [foodList, setFoodList] = useState([]);
+  const [foodList, setFoodList] = useState(global.foodList);
 
   const appendToFoodList = (newFood) => {
     setFoodList([...foodList, newFood]);
     global.update({
-      foodList: global.foodList
+      foodList: [...global.foodList, newFood]
     })
   };
 
