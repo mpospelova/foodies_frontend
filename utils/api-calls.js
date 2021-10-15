@@ -1,5 +1,5 @@
-//const api_pi = "http://tumai-foodies-backend.herokuapp.com:80/"
-const api_pi = "http://localhost:5000/"
+const api_pi = "https://tumai-foodies-backend.herokuapp.com/"
+//const api_pi = "http://localhost:5000/"
 
 // Makes api call to get recipe and shop list
 export async function api_all( food_list ){
@@ -11,6 +11,7 @@ export async function api_all( food_list ){
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json;charset=utf-8',
+                'Access-Control-Allow-Origin': '*'
               },
               body: JSON.stringify(request_body)
             })
