@@ -19,7 +19,7 @@ export default function FoodDisplay() {
     //      count: global.count + 1
     //    })
     //}
-
+    
     function computeColor(food_item) {
         let currentDate = new Date();
         let food_expir_date = new Date(food_item.expir_date)
@@ -36,79 +36,89 @@ export default function FoodDisplay() {
         return "https://emojiapi.dev/api/v1/" + item.name + "/40.png";
     }
 
-    const foodList = [
-        {
-            id: 123,
-            name: "chicken",
-            quantity: 3,
-            unit: "pcs",
-            expir_date: new Date(2022, 11, 21).toString()
-        },
-        {
-            id: 12,
-            name: "tomato",
-            quantity: 5,
-            unit: "pcs",
-            expir_date: new Date(2021, 9, 12).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2018, 11, 24).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2021, 9, 24).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2021, 9, 18).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2021, 11, 24).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
-        },
-        {
-            id: 111,
-            name: "banana",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
-        },
-        {
-            id: 111,
-            name: "tomato",
-            quantity: 2,
-            unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
-        },
-    ];
-    //const foodList = global.foodList;
+    //const foodList = [
+    //    {
+    //        id: 123,
+    //        name: "chicken",
+    //        quantity: 3,
+    //        unit: "pcs",
+    //        expir_date: new Date(2022, 11, 21).toString()
+    //    },
+    //    {
+    //        id: 12,
+    //        name: "tomato",
+    //        quantity: 5,
+    //        unit: "pcs",
+    //        expir_date: new Date(2021, 9, 12).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2018, 11, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2021, 9, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2022, 11, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2021, 9, 18).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2021, 11, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2022, 11, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "banana",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2022, 11, 24).toString()
+    //    },
+    //    {
+    //        id: 111,
+    //        name: "tomato",
+    //        quantity: 2,
+    //        unit: "pcs",
+    //        expir_date: new Date(2022, 11, 24).toString()
+    //    },
+    //];
+    
+    const foodList = global.foodList;
+    
+    if(foodList.length === 0) {
+        return (
+            <>
+                <p> Your Fridge is Empty</p>
+            </>
+        )
+    } 
+
     foodList.sort(function (f1, f2) {
         return (new Date(f1.expir_date)) - (new Date(f2.expir_date));
     })
