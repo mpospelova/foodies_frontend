@@ -1,14 +1,15 @@
+.input_box {
+  width: 100%;
+  background: #1abc9c;
+  margin: 0;
+}
+
 .input_page_title {
   padding: 10px;
   text-align: center;
   background: #1abc9c;
   color: white;
   font-size: 30px;
-}
-
-.input_field_names {
-  display: flex;
-  justify-content: space-around;
 }
 
 .input_button {
@@ -27,6 +28,16 @@
   cursor: pointer;
 }
 
+.submit_button:hover {
+  background-color: #116959;
+}
+@media all and (max-width: 30em) {
+  submit_button {
+    display: block;
+    margin: 0.2em auto;
+  }
+}
+
 .submit_button {
   width: 80%;
   background: #1abc9c;
@@ -40,8 +51,28 @@
   cursor: pointer;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  border-radius: 2em;
+  padding: 0.3em 1.2em;
+  margin: 0 0.3em 0.3em 0;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.submit_button:hover {
+  background-color: #116959;
+}
+@media all and (max-width: 30em) {
+  submit_button {
+    display: block;
+    margin: 0.2em auto;
+  }
 }
 
 .food_table_title {
+  margin-top: 90px;
+  padding-left: 10px;
+}
+.food_table {
   padding: 10px;
 }

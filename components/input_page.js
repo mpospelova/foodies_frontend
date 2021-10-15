@@ -3,6 +3,7 @@ import FoodInputField from "../components/food_input";
 import React, { useState } from "react";
 import FoodTable from "./food_table";
 import { v4 as uuidv4 } from "uuid";
+import Link from "next/link";
 
 import { useContext } from 'react'
 import GlobalContext from '../utils/global-context'
@@ -48,12 +49,8 @@ export default function InputPage() {
 
   return (
     <div className="input_page">
-      <h2 className="input_page_title"> Enter your food!!!</h2>
-
-      <div className="input_field_names">
-        <div className="input_name">Name</div>
-        <div className="input_quantity">Quantity</div>
-        <div className="input_unit">Unit</div>
+      <div className="input_box">
+        <h2 className="input_page_title"> Enter your food!!!</h2>
       </div>
 
       <div className="input_container">
@@ -70,9 +67,11 @@ export default function InputPage() {
       <button className="input_button" onClick={addNewTextField}>
         +
       </button>
-      <button className="submit_button">Submit</button>
+      <Link href="/">
+        <button className="submit_button">Submit</button>
+      </Link>
 
-      <h3 className="food_table_title"> Newly added food:</h3>
+      <h3 className="food_table_title"> New groceries:</h3>
       <div className="food_table">
         <FoodTable foodList={foodList} />
       </div>

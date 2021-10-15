@@ -12,6 +12,7 @@ export default function FoodInputField({
         className="name_input"
         type="text"
         value={name}
+        placeholder="Name"
         onChange={(e) => setName(e.target.value)}
       />
 
@@ -19,6 +20,7 @@ export default function FoodInputField({
         className="quantity_input"
         type="text"
         value={quantity}
+        placeholder="Quantity"
         onChange={(e) => setQuantity(e.target.value)}
       />
 
