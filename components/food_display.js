@@ -33,7 +33,7 @@ export default function FoodDisplay() {
     }
 
     function generateImageUrl(item) {
-        return "https://emojiapi.dev/api/v1/" + item.name + "/50.png";
+        return "https://emojiapi.dev/api/v1/" + item.name + "/40.png";
     }
 
     const foodList = [
@@ -130,14 +130,32 @@ export default function FoodDisplay() {
                           );
                       } else {
                           return (
-                            <div 
-                              className="food_display_item"
-                              key={index}
-                              style={{background:computeColor(item)}}>
-                              <img src={generateImageUrl(item)}></img>
-                              {item.name} {item.quantity} {item.unit}
-                            </div>
+                              <>
+                                <img src={generateImageUrl(item)}
+                                    style={{float: "left"}} 
+                                ></img>
+                                <div 
+                                  className="food_display_item"
+                                  key={index}
+                                  style={{background:computeColor(item)}}>
+                                  <b>{item.name}</b> {item.quantity} {item.unit}
+                                </div>
+                              </>
                           );
+                          //return (
+                          //    <>
+                          //    <div style={{
+                          //          width:"50px",
+                          //          float:"left",
+                          //          background:"#CEE5D0"
+                          //    }}>
+                          //    emoji
+                          //    </div>
+                          //    <div style={{background:"#FF7878"}}>
+                          //          test
+                          //      </div>
+                          //    </>
+                          //);
                       }
                   }
                 )
