@@ -4,6 +4,8 @@
   border: none;
   text-align: center;
   cursor: pointer;
+  margin: 10px;
+  height: 50px;
 }
 
 .food_display_frame {

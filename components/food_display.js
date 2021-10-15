@@ -31,73 +31,78 @@ export default function FoodDisplay() {
             return "#6add23"; //Green
         }
     }
+
+    function generateImageUrl(item) {
+        return "https://emojiapi.dev/api/v1/" + item.name + "/50.png";
+    }
+
     const foodList = [
         {
             id: 123,
-            name: "Paprika",
+            name: "chicken",
             quantity: 3,
             unit: "pcs",
             expir_date: new Date(2022, 11, 21).toString()
         },
         {
             id: 12,
-            name: "Tomatoes",
+            name: "tomato",
             quantity: 5,
             unit: "pcs",
             expir_date: new Date(2021, 9, 12).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2018, 11, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2021, 9, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2022, 11, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2021, 9, 18).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2021, 11, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2022, 11, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "banana",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2022, 11, 24).toString()
         },
         {
             id: 111,
-            name: "Bananas",
+            name: "tomato",
             quantity: 2,
             unit: "pcs",
             expir_date: new Date(2022, 11, 24).toString()
@@ -110,7 +115,6 @@ export default function FoodDisplay() {
     foodList.push({empty: true})
     foodList.push({empty: true})
     foodList.push({empty: true})
-    foodList.push({empty: true})
     return (
         <>
             <div className="food_display_frame">
@@ -118,20 +122,21 @@ export default function FoodDisplay() {
                   foodList.map((item, index) => {
                       if(item.empty !== undefined) {
                           return (
-                            <p 
+                            <div 
                               className="food_display_item"
                               key={index}
                               style={{visibility:"hidden"}}>dummy
-                            </p>
+                            </div>
                           );
                       } else {
                           return (
-                            <p 
+                            <div 
                               className="food_display_item"
                               key={index}
                               style={{background:computeColor(item)}}>
-                              {item.name} {item.quantity} {item.unit} {item.expir_date}
-                            </p>
+                              <img src={generateImageUrl(item)}></img>
+                              {item.name} {item.quantity} {item.unit}
+                            </div>
                           );
                       }
                   }
