@@ -1,0 +1,14 @@
+.RecipeItem__container {
+  background-color: rgb(83, 200, 247);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.RecipeItem__summary {
+  /* text-overflow: clip; */
+  text-overflow: ellipsis;
+  /* text-overflow: "…"; */
+}
+/* .RecipeItem__container {
+  width: 300px;
+}  */
