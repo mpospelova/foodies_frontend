@@ -7,7 +7,6 @@ export default function LandingPage() {
     <div className="landing_page">
       <RecipeList />
       <FoodDisplay />
-
     </div>
   );
 }

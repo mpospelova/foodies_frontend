@@ -24,11 +24,11 @@ export default function FoodDisplay() {
         let currentDate = new Date();
         let food_expir_date = new Date(food_item.expir_date)
         if(food_expir_date - currentDate < 0) {
-            return "#dd5823"; //Red
+            return "#dd234b"; //Red
         }else if((food_expir_date - currentDate) < (7 * 24 * 60 * 60 * 1000)){
-            return "#d1bc23"; //Yellow
+            return "#ddb523"; //Yellow
         }else {
-            return "#6fc41f"; //Green
+            return "#6add23"; //Green
         }
     }
     const foodList = [
@@ -72,14 +72,14 @@ export default function FoodDisplay() {
             name: "Bananas",
             quantity: 2,
             unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
+            expir_date: new Date(2021, 9, 18).toString()
         },
         {
             id: 111,
             name: "Bananas",
             quantity: 2,
             unit: "pcs",
-            expir_date: new Date(2022, 11, 24).toString()
+            expir_date: new Date(2021, 11, 24).toString()
         },
         {
             id: 111,
@@ -107,17 +107,34 @@ export default function FoodDisplay() {
     foodList.sort(function (f1, f2) {
         return (new Date(f1.expir_date)) - (new Date(f2.expir_date));
     })
+    foodList.push({empty: true})
+    foodList.push({empty: true})
+    foodList.push({empty: true})
+    foodList.push({empty: true})
     return (
         <>
             <div className="food_display_frame">
               {
-                foodList.map((item, index) =>
-                  <p 
-                    className="food_display_item"
-                    key={index}
-                    style={{background:computeColor(item)}}>
-                    {item.name} {item.quantity} {item.unit} {item.expir_date}
-                  </p>
+                  foodList.map((item, index) => {
+                      if(item.empty !== undefined) {
+                          return (
+                            <p 
+                              className="food_display_item"
+                              key={index}
+                              style={{visibility:"hidden"}}>dummy
+                            </p>
+                          );
+                      } else {
+                          return (
+                            <p 
+                              className="food_display_item"
+                              key={index}
+                              style={{background:computeColor(item)}}>
+                              {item.name} {item.quantity} {item.unit} {item.expir_date}
+                            </p>
+                          );
+                      }
+                  }
                 )
               }
             </div>
