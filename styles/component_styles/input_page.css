@@ -1,0 +1,12 @@
+.input_page_title {
+  padding: 10px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+.input_field_names {
+  display: flex;
+  justify-content: space-around;
+}
