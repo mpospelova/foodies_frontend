@@ -1,19 +1,37 @@
 import FoodInputField from "../components/food_input";
 
 import React, { useState } from "react";
+import FoodTable from "./food_table";
+import { v4 as uuidv4 } from "uuid";
+
+import { useContext } from 'react'
+import GlobalContext from '../utils/global-context'
 
 export default function InputPage() {
+  const global = useContext(GlobalContext)
+
   const [name, setName] = useState("");
   const [unit, setUnit] = useState();
   const [quantity, setQuantity] = useState("");
-  const [foodList, setFoodList] = useState([]);
+  const [foodList, setFoodList] = useState(global.foodList);
 
   const appendToFoodList = (newFood) => {
     setFoodList([...foodList, newFood]);
+    global.update({
+      foodList: [...global.foodList, newFood]
+    })
   };
 
   const addNewTextField = () => {
-    const newFood = { name: name, unit: unit, quantity: quantity };
+    const currDate = new Date();
+    const yymmdd = currDate.toISOString().split("T")[0];
+    const newFood = {
+      id: uuidv4(),
+      name: name,
+      unit: unit,
+      quantity: quantity,
+      time: yymmdd,
+    };
 
     setName("");
     setUnit("");
@@ -48,6 +66,11 @@ export default function InputPage() {
         +
       </button>
       <button className="submit_button">Submit</button>
+
+      <h3 className="food_table_title"> Newly added food:</h3>
+      <div className="food_table">
+        <FoodTable foodList={foodList} />
+      </div>
     </div>
   );
 }
