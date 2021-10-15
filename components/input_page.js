@@ -4,7 +4,12 @@ import React, { useState } from "react";
 import FoodTable from "./food_table";
 import { v4 as uuidv4 } from "uuid";
 
+import { useContext } from 'react'
+import GlobalContext from '../utils/global-context'
+
 export default function InputPage() {
+  const global = useContext(GlobalContext)
+
   const [name, setName] = useState("");
   const [unit, setUnit] = useState();
   const [quantity, setQuantity] = useState("");
@@ -12,6 +17,9 @@ export default function InputPage() {
 
   const appendToFoodList = (newFood) => {
     setFoodList([...foodList, newFood]);
+    global.update({
+      foodList: global.foodList
+    })
   };
 
   const addNewTextField = () => {
