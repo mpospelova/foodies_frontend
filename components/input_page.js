@@ -1,15 +1,15 @@
 import FoodInputField from "../components/food_input";
 
 import React, { useState } from "react";
-import FoodTable from "./food_table";
 import { v4 as uuidv4 } from "uuid";
 import Link from "next/link";
 
-import { useContext } from 'react'
-import GlobalContext from '../utils/global-context'
+import { useContext } from "react";
+import GlobalContext from "../utils/global-context";
+import FoodCard from "./food_card";
 
 export default function InputPage() {
-  const global = useContext(GlobalContext)
+  const global = useContext(GlobalContext);
 
   const [name, setName] = useState("");
   const [unit, setUnit] = useState();
@@ -19,8 +19,8 @@ export default function InputPage() {
   const appendToFoodList = (newFood) => {
     setFoodList([...foodList, newFood]);
     global.update({
-      foodList: [...global.foodList, newFood]
-    })
+      foodList: [...global.foodList, newFood],
+    });
   };
 
   const addNewTextField = () => {
@@ -50,18 +50,16 @@ export default function InputPage() {
   return (
     <div className="input_page">
       <div className="input_box">
-        <h2 className="input_page_title"> Enter your food!!!</h2>
-      </div>
-
-      <div className="input_container">
-        <FoodInputField
-          name={name}
-          setName={setName}
-          quantity={quantity}
-          setQuantity={setQuantity}
-          unit={unit}
-          setUnit={setUnit}
-        />
+        <div className="input_container">
+          <FoodInputField
+            name={name}
+            setName={setName}
+            quantity={quantity}
+            setQuantity={setQuantity}
+            unit={unit}
+            setUnit={setUnit}
+          />
+        </div>
       </div>
 
       <button className="input_button" onClick={addNewTextField}>
@@ -71,10 +69,20 @@ export default function InputPage() {
         <button className="submit_button">Submit</button>
       </Link>
 
-      <h3 className="food_table_title"> New groceries:</h3>
-      <div className="food_table">
-        <FoodTable foodList={foodList} />
+      <div className="food_card_container">
+        {foodList.map(({ name, quantity, unit }) => (
+          <FoodCard name={name} quantity={quantity} unit={unit} />
+        ))}
       </div>
+
+      <div class="input_page_image_container">
+        <img src="/5245.jpg" />
+      </div>
+
+      {/* <a
+        className="input_page_source"
+        href="https://www.freepik.com/vectors/food"
+      ></a> */}
     </div>
   );
 }
