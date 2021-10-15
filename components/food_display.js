@@ -21,9 +21,10 @@ export default function FoodDisplay() {
 
     function computeColor(food_item) {
         let currentDate = new Date();
-        if(currentDate - food_item.time < 0) {
+        let food_expir_date = new Date(food_item.expir_date)
+        if(currentDate - food_expir_date < 0) {
             return "#dd5823"; //Red
-        }else if((currentDate - food_item.time) < (7 * 24 * 60 * 60 * 1000)){
+        }else if((currentDate - food_expir_date) < (7 * 24 * 60 * 60 * 1000)){
             return "#d1bc23"; //Yellow
         }else {
             return "#6fc41f"; //Green
@@ -54,7 +55,7 @@ export default function FoodDisplay() {
     //];
     const foodList = global.foodList;
     foodList.sort(function (f1, f2) {
-        return f2.time - f1.time;
+        return (new Date(f2.expir_date)) - (new Date(f1.expir_date));
     })
     let cnter = 0;
     cnter += 1;
@@ -68,7 +69,7 @@ export default function FoodDisplay() {
                     className="food_display_item"
                     key={index}
                     style={{background:computeColor(item)}}>
-                    {item.name} {item.quantity} {item.unit} {item.time.toString()}
+                    {item.name} {item.quantity} {item.unit} {item.expir_date}
                   </p>
                 )
               }
