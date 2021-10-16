@@ -20,13 +20,13 @@
     #cee5d0
   );
   position: absolute;
-  top: -10px;
+  top: 0;
   height: 25vh;
-  border-radius: 0 0 25% 25%;
+  border-radius: 0 0 40px 40px;
 }
 
 .RecipeList__header {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   text-align: center;
   color: white;
@@ -35,7 +35,7 @@
   text-shadow: 2px 2px #e0c097;
   font-family: "Pacifico", cursive;
   margin: 0;
-  top: 10px;
+  /* top: 10px; */
 }
 
 .RecipeList__swiperContainer {
