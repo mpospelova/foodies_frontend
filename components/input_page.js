@@ -99,6 +99,12 @@ export default function InputPage() {
         <img src="/5245.jpg" />
       </div>
 
+      {!localFoodList.length && (
+        <h3 className="input_page_motivational_text">
+          You can add your new groceries here!
+        </h3>
+      )}
+
       {/* <a
         className="input_page_source"
         href="https://www.freepik.com/vectors/food"
