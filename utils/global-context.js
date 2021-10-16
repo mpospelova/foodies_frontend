@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 const GlobalContext = React.createContext({
-    foodList: [],  
-    count: 0,
-    update: (data) => {}
-})
+  foodList: [],
+  recipeList: [],
+  update: (data) => {},
+});
 
-export default GlobalContext
+export default GlobalContext;

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import GlobalContext from "../utils/global-context";
 import FoodCard from "./food_card";
+import { api_all } from "../utils/api-calls";
 
 export default function InputPage() {
   const global = useContext(GlobalContext);
@@ -16,6 +17,7 @@ export default function InputPage() {
   const [quantity, setQuantity] = useState("");
   const [foodList, setFoodList] = useState(global.foodList);
   const [localFoodList, setLocalFoodList] = useState([]);
+  const [recipeList, setRecipeList] = useState(global.recipeList);
 
   const appendToLocalList = (newFood) => {
     setLocalFoodList([...localFoodList, newFood]);
@@ -26,6 +28,7 @@ export default function InputPage() {
       foodList: [...global.foodList, ...localFoodList],
     });
 
+    setRecipeList(api_all(global.foodList));
     setLocalFoodList([]);
   };
 
