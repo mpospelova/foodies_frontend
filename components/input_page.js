@@ -15,20 +15,25 @@ export default function InputPage() {
   const [name, setName] = useState("");
   const [unit, setUnit] = useState();
   const [quantity, setQuantity] = useState("");
-  const [foodList, setFoodList] = useState(global.foodList);
   const [localFoodList, setLocalFoodList] = useState([]);
-  const [recipeList, setRecipeList] = useState(global.recipeList);
 
   const appendToLocalList = (newFood) => {
     setLocalFoodList([...localFoodList, newFood]);
   };
 
-  const onClickSubmit = () => {
+  const onClickSubmit = async () => {
     global.update({
+      ...global,
       foodList: [...global.foodList, ...localFoodList],
     });
 
-    setRecipeList(api_all(global.foodList));
+    const apiObject = await api_all(global.foodList);
+    global.update({
+      ...global,
+      recipeList: [apiObject.recipeList],
+      foodList: [...global.foodList, ...localFoodList],
+      shoppingList: [apiObject.shopList],
+    });
     setLocalFoodList([]);
   };
 
