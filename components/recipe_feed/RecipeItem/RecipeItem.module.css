@@ -1,24 +1,21 @@
 .RecipeItem__container {
   border-radius: 10px;
-  padding: 10px;
+  padding: 15px;
+  position: absolute;
 }
 
 .RecipeItem__summary {
-  /* text-overflow: clip; */
-  /* text-overflow: ellipsis; */
-  /* text-overflow: "…"; */
+  margin-top: 10px;
+  font-family: "Quicksand", sans-serif;
 }
-/* .RecipeItem__container {
-  width: 300px;
-}  */
 
 .RecipeItem__name {
-  text-align: center;
-  font-family: cursive;
+  text-align: left;
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
 }
 
-.RecipeItem__name:after {
-  content: " ";
-  display: block;
-  border: 1px solid black;
+.RecipeItem__howToMakeText {
+  font-family: "Quicksand", sans-serif;
+  font-size: small;
 }

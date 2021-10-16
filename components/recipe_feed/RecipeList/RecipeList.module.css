@@ -2,32 +2,43 @@
   width: 250px;
   height: 200px;
   border-radius: 25px;
-  background-image: linear-gradient(
-    to right bottom,
-    #ff7878,
-    #fd7e75,
-    #fb8373,
-    #f88971,
-    #f58e70,
-    #f58e70,
-    #f58e70,
-    #f58e70,
-    #f88971,
-    #fb8373,
-    #fd7e75,
-    #ff7878
-  );
+  margin: 10px;
+  background-color: #e9f3ea;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   /* overflow: hidden; */
 }
 
 .RecipeList__container {
-  margin: 10px;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    #e0c097,
+    #d8cba1,
+    #d2d5af,
+    #cedec0,
+    #cee5d0
+  );
+  position: absolute;
+  top: -10px;
+  height: 25vh;
+  border-radius: 0 0 25% 25%;
 }
 
 .RecipeList__header {
-  text-align: left;
+  position: absolute;
+  width: 100%;
+  text-align: center;
   color: white;
-  font-size: 2.2em;
+  font-size: 3em;
   font-weight: 800;
   text-shadow: 2px 2px #e0c097;
+  font-family: "Pacifico", cursive;
+  margin: 0;
+  top: 10px;
+}
+
+.RecipeList__swiperContainer {
+  position: absolute;
+  top: 80px;
 }
