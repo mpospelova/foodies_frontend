@@ -114,7 +114,10 @@ export default function FoodDisplay() {
     if(foodList.length === 0) {
         return (
             <>
-                <p> Your Fridge is Empty</p>
+                <h2 className="food_display_empty_fridge_text">Your Fridge is Empty</h2>
+                <div className="food_display_image_container">
+                  <img src="/emptyfridge.jpg" />
+                </div>
             </>
         )
     } 
@@ -127,6 +130,9 @@ export default function FoodDisplay() {
     foodList.push({empty: true})
     return (
         <>
+            <div className="food_display_image_container">
+              <img src="/emptyfridge.jpg" />
+            </div>
             <div className="food_display_frame">
               {
                   foodList.map((item, index) => {

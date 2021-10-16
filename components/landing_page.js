@@ -11,7 +11,7 @@ export default function LandingPage() {
       <FoodDisplay />
       <Link href="/input">
         <button type="button" className="landing_page_toinput_btn">
-          +
+          <b>+</b>
         </button>
       </Link>
     </div>

@@ -1,6 +1,4 @@
 .landing_page {
-  background: #f3f0d7;
-  height: 100%;
 }
 
 .landing_page_toinput_btn {
@@ -11,10 +9,10 @@
   bottom: 0px;
   height: 70px;
   width: 70px;
-  background: #1abc9c;
+  background: #E0C097;
   color: white;
   border: none;
   text-align: center;
-  font-size: large;
+  font-size: 30px;
   cursor: pointer;
 }
