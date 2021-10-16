@@ -8,7 +8,6 @@ export default function FoodInputField({
 }) {
   return (
     <form className="input_form">
-      <h2 className="input_page_title"> Enter groceries:</h2>
       <input
         className="name_input"
         type="text"
