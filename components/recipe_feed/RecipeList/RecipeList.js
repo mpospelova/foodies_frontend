@@ -11,9 +11,15 @@ const RecipeList = ({ recipes }) => {
       </div>
       <div className={styles.RecipeList__swiperContainer}>
         <Swiper slidesPerView={"auto"} spaceBetween={5}>
-          {recipes.map(({ id, name, summary }) => (
+          {recipes.map(({ id, name, summary, cook_time, url, photo_url }) => (
             <SwiperSlide key={id} className={styles.swiperSlide}>
-              <RecipeItem name={name} summary={summary} />
+              <RecipeItem
+                name={name}
+                summary={summary}
+                cookingTime={cook_time}
+                url={url}
+                photo_url={photo_url}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
