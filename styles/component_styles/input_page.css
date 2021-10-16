@@ -1,5 +1,5 @@
 .input_box {
-  width: 100%;
+  width: 100vw;
   background-image: linear-gradient(
     to top,
     #cee5d0,
@@ -8,9 +8,19 @@
     #d8cba1,
     #e0c097
   );
-  position: absolute;
-  top: 0;
+  position: relative;
+  /* top: 0; */
   padding-bottom: 20px;
+}
+.input_page_title {
+  text-align: center;
+  color: white;
+  font-size: 2.2em;
+  font-weight: 800;
+  text-shadow: 2px 2px #e0c097;
+  font-family: "Pacifico", cursive;
+  padding: 10px;
+  margin: 0;
 }
 
 .input_button {
@@ -18,9 +28,9 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   position: absolute;
-  left: 80%;
-  top: 200px;
-  transform: translate(-50%, -50%);
+  right: 20px;
+  bottom: 0px;
+  transform: translateY(50%);
   height: 50px;
   width: 100px;
   background: #e0c097;
@@ -34,12 +44,6 @@
 .input_button:hover {
   background-color: #a78c68;
 }
-@media all and (max-width: 30em) {
-  input_button {
-    display: block;
-    margin: 0.2em auto;
-  }
-}
 
 .submit_button {
   width: 80%;
@@ -48,7 +52,7 @@
   border: none;
   text-align: center;
   font-size: large;
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   height: 50px;
   cursor: pointer;
@@ -65,12 +69,6 @@
 .submit_button:hover {
   background-color: #a33838;
 }
-@media all and (max-width: 30em) {
-  submit_button {
-    display: block;
-    margin: 0.2em auto;
-  }
-}
 
 .food_card_container {
   display: flex;
@@ -83,7 +81,7 @@
 }
 
 .input_page_image_container {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 100vw;

@@ -53,6 +53,7 @@ export default function InputPage() {
     <div className="input_page">
       <div className="input_box">
         <div className="input_container">
+          <h2 className="input_page_title"> Groceries</h2>
           <FoodInputField
             name={name}
             setName={setName}
@@ -62,11 +63,11 @@ export default function InputPage() {
             setUnit={setUnit}
           />
         </div>
+        <button className="input_button" onClick={addNewTextField}>
+          +
+        </button>
       </div>
 
-      <button className="input_button" onClick={addNewTextField}>
-        +
-      </button>
       <Link href="/">
         <button className="submit_button">Submit</button>
       </Link>
