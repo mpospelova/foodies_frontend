@@ -27,7 +27,6 @@ export default function FoodDisplay() {
   };
 
   const removeFromFoodList = (id) => {
-    alert("Remove " + id); //TODO
     const filtered = foodList.filter((item) => {
       return item.id != id;
     });
