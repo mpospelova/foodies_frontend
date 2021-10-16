@@ -4,111 +4,27 @@ import Link from 'next/link'
 
 export default function FoodDisplay() {
     const global = useContext(GlobalContext);
-
-    //function handleClick() {
-    //    foodList.push(
-    //        {
-    //            id: 123,
-    //            name: "Paprika",
-    //            quantity: 3,
-    //            unit: "pcs",
-    //            expir_date: new Date(2022, 11, 21)
-    //        }
-    //    )
-    //    global.update({
-    //      count: global.count + 1
-    //    })
-    //}
     
     function computeColor(food_item) {
         let currentDate = new Date();
         let food_expir_date = new Date(food_item.expir_date)
         if(food_expir_date - currentDate < 0) {
-            return "#dd234b"; //Red
+            return "#dd234b50"; //Red
         }else if((food_expir_date - currentDate) < (7 * 24 * 60 * 60 * 1000)){
-            return "#ddb523"; //Yellow
+            return "#ddb52350"; //Yellow
         }else {
-            return "#6add23"; //Green
+            return "#6add2350"; //Green
         }
     }
 
     function generateImageUrl(item) {
-        return "https://emojiapi.dev/api/v1/" + item.name + "/40.png";
+        return "https://emojiapi.dev/api/v1/" + item.name + "/32.png";
     }
 
-    //const foodList = [
-    //    {
-    //        id: 123,
-    //        name: "chicken",
-    //        quantity: 3,
-    //        unit: "pcs",
-    //        expir_date: new Date(2022, 11, 21).toString()
-    //    },
-    //    {
-    //        id: 12,
-    //        name: "tomato",
-    //        quantity: 5,
-    //        unit: "pcs",
-    //        expir_date: new Date(2021, 9, 12).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2018, 11, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2021, 9, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2022, 11, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2021, 9, 18).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2021, 11, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2022, 11, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "banana",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2022, 11, 24).toString()
-    //    },
-    //    {
-    //        id: 111,
-    //        name: "tomato",
-    //        quantity: 2,
-    //        unit: "pcs",
-    //        expir_date: new Date(2022, 11, 24).toString()
-    //    },
-    //];
-    
+    function handleEmojiError(e) {
+        e.target.src = "https://emojiapi.dev/api/v1/red_question_mark/32.png";
+    }
+
     const foodList = global.foodList.slice();
     
     if(foodList.length === 0) {
@@ -147,8 +63,10 @@ export default function FoodDisplay() {
                       } else {
                           return (
                               <>
-                                <img src={generateImageUrl(item)}
+                                <img 
+                                    src={generateImageUrl(item)}
                                     style={{float: "left"}} 
+                                    onError={handleEmojiError}
                                 ></img>
                                 <div 
                                   className="food_display_item"
