@@ -108,8 +108,8 @@ export default function InputPage() {
       </Link>
 
       <div className="food_card_container">
-        {localFoodList.map(({ name, quantity, unit }) => (
-          <FoodCard name={name} quantity={quantity} unit={unit} />
+        {localFoodList.map(({ id, name, quantity, unit }) => (
+          <FoodCard key={id} name={name} quantity={quantity} unit={unit} />
         ))}
       </div>
 
