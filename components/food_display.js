@@ -18,11 +18,11 @@ export default function FoodDisplay() {
     let currentDate = new Date();
     let food_expir_date = new Date(food_item.expir_date);
     if (food_expir_date - currentDate < 0) {
-      return "#dd234b70"; //Red
+      return "#dd234b90"; //Red
     } else if (food_expir_date - currentDate < 7 * 24 * 60 * 60 * 1000) {
-      return "#ddb52370"; //Yellow
+      return "#ddb52390"; //Yellow
     } else {
-      return "#6add2370"; //Green
+      return "#6add2390"; //Green
     }
   };
 
