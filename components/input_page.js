@@ -28,7 +28,7 @@ export default function InputPage() {
     const yymmdd = currDate.toISOString().split("T")[0];
     //We define random offset of current date to get expiration date. Offset is uniformly random of 20 days
     const random_offset = Math.round(
-      (Math.random() - 0.8) * 20 * 24 * 60 * 60 * 1000
+      (Math.random() - 0.2) * 20 * 24 * 60 * 60 * 1000
     );
     const expir_date = new Date(currDate.getTime() + random_offset);
     const expir_date_yymmdd = expir_date.toISOString().split("T")[0];
