@@ -25,6 +25,8 @@ export default function InputPage() {
     global.update({
       foodList: [...global.foodList, ...localFoodList],
     });
+
+    setLocalFoodList([]);
   };
 
   const addNewTextField = () => {
@@ -78,10 +80,12 @@ export default function InputPage() {
       </div>
 
       <Link href="/">
-        {localFoodList && (
+        {localFoodList.length ? (
           <button className="submit_button" onClick={onClickSubmit}>
             Submit
           </button>
+        ) : (
+          <button className="submit_button">Return</button>
         )}
       </Link>
 
