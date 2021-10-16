@@ -12,6 +12,8 @@ import "../styles/component_styles/food_card.css";
 import "swiper/css";
 import "swiper/css/bundle";
 
+import "react-swipeable-list/dist/styles.css";
+
 function MyApp({ Component, pageProps }) {
   const [state, setState] = useState({
     foodList: [],
