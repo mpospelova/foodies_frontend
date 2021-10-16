@@ -109,7 +109,7 @@ export default function FoodDisplay() {
     //    },
     //];
     
-    const foodList = global.foodList;
+    const foodList = global.foodList.slice();
     
     if(foodList.length === 0) {
         return (
