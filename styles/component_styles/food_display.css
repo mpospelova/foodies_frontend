@@ -13,6 +13,7 @@
 .food_display_empty_fridge_text {
   position: absolute;
   width: 100%;
+  font-family: "Quicksand", sans-serif;
   text-align: center;
   transform: translate(0%, 30%);
 }
