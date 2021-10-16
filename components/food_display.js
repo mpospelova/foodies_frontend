@@ -18,16 +18,23 @@ export default function FoodDisplay() {
     let currentDate = new Date();
     let food_expir_date = new Date(food_item.expir_date);
     if (food_expir_date - currentDate < 0) {
-      return "#dd234b50"; //Red
+      return "#dd234b70"; //Red
     } else if (food_expir_date - currentDate < 7 * 24 * 60 * 60 * 1000) {
-      return "#ddb52350"; //Yellow
+      return "#ddb52370"; //Yellow
     } else {
-      return "#6add2350"; //Green
+      return "#6add2370"; //Green
     }
   };
 
   const removeFromFoodList = (id) => {
     alert("Remove " + id); //TODO
+    const filtered = foodList.filter((item) => {
+      return item.id != id;
+    });
+
+    global.update({
+      foodList: filtered,
+    });
   };
 
   const trailingActions = (id) => (
