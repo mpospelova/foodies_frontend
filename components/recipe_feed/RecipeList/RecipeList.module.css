@@ -1,7 +1,7 @@
 .swiperSlide {
   width: 250px;
   height: 200px;
-  border-radius: 10px;
+  border-radius: 25px;
   background-image: linear-gradient(
     to right bottom,
     #ff7878,
@@ -17,9 +17,17 @@
     #fd7e75,
     #ff7878
   );
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .RecipeList__container {
   margin: 10px;
+}
+
+.RecipeList__header {
+  text-align: left;
+  color: white;
+  font-size: 2.2em;
+  font-weight: 800;
+  text-shadow: 2px 2px #e0c097;
 }

@@ -11,3 +11,14 @@
 /* .RecipeItem__container {
   width: 300px;
 }  */
+
+.RecipeItem__name {
+  text-align: center;
+  font-family: cursive;
+}
+
+.RecipeItem__name:after {
+  content: " ";
+  display: block;
+  border: 1px solid black;
+}

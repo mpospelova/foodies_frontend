@@ -36,14 +36,17 @@ const RecipeList = () => {
     },
   ];
   return (
-    <div className={styles.RecipeList__container}>
-      <Swiper slidesPerView={"auto"} spaceBetween={5}>
-        {recipes.map(({ id, name, summary }) => (
-          <SwiperSlide key={id} className={styles.swiperSlide}>
-            <RecipeItem name={name} summary={summary} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div>
+      <h2 className={styles.RecipeList__header}> Recipes </h2>
+      <div className={styles.RecipeList__container}>
+        <Swiper slidesPerView={"auto"} spaceBetween={5}>
+          {recipes.map(({ id, name, summary }) => (
+            <SwiperSlide key={id} className={styles.swiperSlide}>
+              <RecipeItem name={name} summary={summary} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

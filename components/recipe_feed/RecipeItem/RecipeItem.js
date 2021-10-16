@@ -5,7 +5,7 @@ import styles from "./RecipeItem.module.css";
 const RecipeItem = ({ name, summary }) => {
   return (
     <div className={styles.RecipeItem__container}>
-      <h1>{name}</h1>
+      <h1 className={styles.RecipeItem__name}>{name}</h1>
       <div className={styles.RecipeItem__summary}>{summary}</div>
     </div>
   );
