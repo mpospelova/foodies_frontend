@@ -15,15 +15,23 @@ export default function InputPage() {
   const [unit, setUnit] = useState();
   const [quantity, setQuantity] = useState("");
   const [foodList, setFoodList] = useState(global.foodList);
+  const [localFoodList, setLocalFoodList] = useState([]);
 
-  const appendToFoodList = (newFood) => {
-    setFoodList([...foodList, newFood]);
+  const appendToLocalList = (newFood) => {
+    setLocalFoodList([...localFoodList, newFood]);
+  };
+
+  const onClickSubmit = () => {
     global.update({
-      foodList: [...global.foodList, newFood],
+      foodList: [...global.foodList, ...localFoodList],
     });
   };
 
   const addNewTextField = () => {
+    if (!name || !quantity) {
+      return;
+    }
+
     const currDate = new Date();
     const yymmdd = currDate.toISOString().split("T")[0];
     //We define random offset of current date to get expiration date. Offset is uniformly random of 20 days
@@ -45,8 +53,9 @@ export default function InputPage() {
     setUnit("");
     setQuantity("");
 
-    appendToFoodList(newFood);
-    console.log(foodList);
+    // appendToFoodList(newFood);
+    appendToLocalList(newFood);
+    console.log(localFoodList);
   };
 
   return (
@@ -69,11 +78,15 @@ export default function InputPage() {
       </div>
 
       <Link href="/">
-        <button className="submit_button">Submit</button>
+        {localFoodList && (
+          <button className="submit_button" onClick={onClickSubmit}>
+            Submit
+          </button>
+        )}
       </Link>
 
       <div className="food_card_container">
-        {foodList.map(({ name, quantity, unit }) => (
+        {localFoodList.map(({ name, quantity, unit }) => (
           <FoodCard name={name} quantity={quantity} unit={unit} />
         ))}
       </div>
