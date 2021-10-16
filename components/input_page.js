@@ -22,17 +22,28 @@ export default function InputPage() {
   };
 
   const onClickSubmit = async () => {
+    const newFoodList = [...global.foodList, ...localFoodList];
     global.update({
       ...global,
-      foodList: [...global.foodList, ...localFoodList],
+      foodList: newFoodList,
     });
 
-    const apiObject = await api_all(global.foodList);
+    console.log("newFoodList", newFoodList);
+    let apiObject;
+    try {
+      console.log("fetching");
+      apiObject = await api_all(newFoodList);
+    } catch (error) {
+      console.log(error);
+    }
+    console.log("globalfoodlist", global.foodList);
+    console.log("apiObject", apiObject);
+
     global.update({
       ...global,
-      recipeList: [apiObject.recipeList],
+      recipeList: apiObject.result,
       foodList: [...global.foodList, ...localFoodList],
-      shoppingList: [apiObject.shopList],
+      // shoppingList: [apiObject.shopList],
     });
     setLocalFoodList([]);
   };
@@ -65,7 +76,6 @@ export default function InputPage() {
 
     // appendToFoodList(newFood);
     appendToLocalList(newFood);
-    console.log(localFoodList);
   };
 
   return (

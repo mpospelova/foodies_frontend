@@ -9,9 +9,9 @@ import GlobalContext from "../utils/global-context";
 
 export default function LandingPage() {
   const global = useContext(GlobalContext);
-  var recipes = global.recipeList?.[0];
+  var recipes = global.recipeList;
 
-  console.log(recipes);
+  console.log("landingpagerecipselist", recipes);
   if (!recipes) {
     recipes = recipesMock;
   }

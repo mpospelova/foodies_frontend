@@ -4,6 +4,7 @@ import styles from "./RecipeList.module.css";
 
 import RecipeItem from "../RecipeItem/RecipeItem";
 const RecipeList = ({ recipes }) => {
+  console.log("recipeeList", recipes);
   return (
     <div>
       <div className={styles.RecipeList__container}>
@@ -11,11 +12,10 @@ const RecipeList = ({ recipes }) => {
       </div>
       <div className={styles.RecipeList__swiperContainer}>
         <Swiper slidesPerView={"auto"} spaceBetween={5}>
-          {recipes.map(({ id, name, summary, cook_time, url, photo_url }) => (
-            <SwiperSlide key={id} className={styles.swiperSlide}>
+          {recipes.map(({ recipe_id, title, cook_time, url, photo_url }) => (
+            <SwiperSlide key={recipe_id} className={styles.swiperSlide}>
               <RecipeItem
-                name={name}
-                summary={summary}
+                name={title}
                 cookingTime={cook_time}
                 url={url}
                 photo_url={photo_url}
