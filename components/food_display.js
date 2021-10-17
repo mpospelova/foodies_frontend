@@ -10,6 +10,7 @@ import {
 } from "react-swipeable-list";
 
 import "react-swipeable-list/dist/styles.css";
+import { api_all } from "../utils/api-calls";
 
 export default function FoodDisplay() {
   const global = useContext(GlobalContext);
@@ -33,6 +34,14 @@ export default function FoodDisplay() {
 
     global.update({
       foodList: filtered,
+    });
+
+    api_all(filtered).then((apiObject) => {
+      global.update({
+        ...global,
+        recipeList: apiObject?.result,
+        foodList: filtered,
+      });
     });
   };
 

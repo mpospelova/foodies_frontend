@@ -28,23 +28,14 @@ export default function InputPage() {
       foodList: newFoodList,
     });
 
-    console.log("newFoodList", newFoodList);
-    let apiObject;
-    try {
-      console.log("fetching");
-      apiObject = await api_all(newFoodList);
-    } catch (error) {
-      console.log(error);
-    }
-    console.log("globalfoodlist", global.foodList);
-    console.log("apiObject", apiObject);
-
-    global.update({
-      ...global,
-      recipeList: apiObject.result,
-      foodList: [...global.foodList, ...localFoodList],
-      // shoppingList: [apiObject.shopList],
+    api_all(newFoodList).then((apiObject) => {
+      global.update({
+        ...global,
+        recipeList: apiObject?.result,
+        foodList: newFoodList,
+      });
     });
+
     setLocalFoodList([]);
   };
 
